@@ -8,7 +8,7 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
 http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="608a6517-cd84-41a2-b6b6-54666815b2d5" >
-		<http:listener-connection host="localhost" port="8081" />
+		<http:listener-connection host="localhost" port="8083" />
 	</http:listener-config>
 	<db:config name="Database_Config" doc:name="Database Config" doc:id="8fbd1800-84a9-4ccf-a56c-2a5dce22f15d" >
 		<db:my-sql-connection host="mudb.learn.mulesoft.com" port="3306" user="mule" password="mule" database="training" />
@@ -25,8 +25,11 @@ http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
 	<flow name="integerationFlow" doc:id="728879cc-cf2f-40ff-9e97-a0e118dfbf57" >
+
 		<http:listener doc:name="Listener" doc:id="2c776705-1d0c-43e1-9797-4a7298c49039" config-ref="HTTP_Listener_config1" path="/intgrationpath"/>
 		<logger level="INFO" doc:name="Logger" doc:id="d3f67efe-9c8d-4a70-89a3-8fba3922e030" />
+
+
 		<http:request method="GET" doc:name="Request" doc:id="0d0cd1a6-8743-4caa-9ad0-33af8283107a" config-ref="HTTP_Request_configuration" path="/united/flights" />
 		<ee:transform doc:name="Transform Message" doc:id="77af8849-c50c-4dde-81a0-84ef2907424b">
 			<ee:message>
@@ -53,5 +56,6 @@ output application/json
 ]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+		<logger level="INFO" doc:name="New" doc:id="9b7c8a39-616d-4f01-ac0c-300778ac734e" />
 	</flow>
 </mule>
