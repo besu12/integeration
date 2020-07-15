@@ -21,8 +21,15 @@ http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/
 	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="d8d89734-9416-4ace-9558-a51c6a3ffa93" >
 		<http:request-connection host="mu.learn.mulesoft.com" port="80" />
 	</http:request-config>
+	<http:listener-config name="HTTP_Listener_config1" doc:name="HTTP Listener config" doc:id="5c9c49be-43f4-4c66-abe0-254edbf2f53f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
 	<flow name="integerationFlow" doc:id="728879cc-cf2f-40ff-9e97-a0e118dfbf57" >
-		<http:listener doc:name="Listener" doc:id="2c776705-1d0c-43e1-9797-4a7298c49039" config-ref="HTTP_Listener_config" path="/integerationpath"/>
+
+		<http:listener doc:name="Listener" doc:id="2c776705-1d0c-43e1-9797-4a7298c49039" config-ref="HTTP_Listener_config1" path="/intgrationpath"/>
+		<logger level="INFO" doc:name="Logger" doc:id="d3f67efe-9c8d-4a70-89a3-8fba3922e030" />
+
+
 		<http:request method="GET" doc:name="Request" doc:id="0d0cd1a6-8743-4caa-9ad0-33af8283107a" config-ref="HTTP_Request_configuration" path="/united/flights" />
 		<ee:transform doc:name="Transform Message" doc:id="77af8849-c50c-4dde-81a0-84ef2907424b">
 			<ee:message>
