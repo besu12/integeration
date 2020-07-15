@@ -8,7 +8,7 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
 http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="608a6517-cd84-41a2-b6b6-54666815b2d5" >
-		<http:listener-connection host="localhost" port="8081" />
+		<http:listener-connection host="localhost" port="8083" />
 	</http:listener-config>
 	<db:config name="Database_Config" doc:name="Database Config" doc:id="8fbd1800-84a9-4ccf-a56c-2a5dce22f15d" >
 		<db:my-sql-connection host="mudb.learn.mulesoft.com" port="3306" user="mule" password="mule" database="training" />
@@ -49,5 +49,6 @@ output application/json
 ]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+		<logger level="INFO" doc:name="New" doc:id="9b7c8a39-616d-4f01-ac0c-300778ac734e" />
 	</flow>
 </mule>
