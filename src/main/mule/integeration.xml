@@ -24,6 +24,9 @@ http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/
 	<http:listener-config name="HTTP_Listener_config1" doc:name="HTTP Listener config" doc:id="5c9c49be-43f4-4c66-abe0-254edbf2f53f" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
+	<flow name="integerationFlow1" doc:id="15b64a19-75e6-470d-ad49-c0a3f646b871" >
+		<flow-ref doc:name="Flow Reference" doc:id="2b4f94f1-4190-49f1-8b06-05da52d632df" name="integerationFlow"/>
+	</flow>
 	<flow name="integerationFlow" doc:id="728879cc-cf2f-40ff-9e97-a0e118dfbf57" >
 
 		<http:listener doc:name="Listener" doc:id="2c776705-1d0c-43e1-9797-4a7298c49039" config-ref="HTTP_Listener_config1" path="/intgrationpath"/>
