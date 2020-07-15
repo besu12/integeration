@@ -34,7 +34,7 @@ payload ++ now()]]></ee:set-payload>
 		</ee:transform>
 		<set-variable value="#[message.attributes.united]" doc:name="Set Variable" doc:id="be4d7614-c21e-4ac5-a7be-0909c0d219bc" variableName="united" />
 		<db:select doc:name="Select" doc:id="5453515c-fbe6-4c06-b633-ea1686ff50cc" config-ref="Database_Config">
-			<db:sql ><![CDATA[select * from american]]></db:sql>
+			<db:sql >select accountID, FirstName, Address from American</db:sql>
 		</db:select>
 		<ee:transform doc:name="Transform Message" doc:id="115327a7-a94e-4f02-be46-8b27a3f45788" >
 			<ee:message >
@@ -49,6 +49,5 @@ output application/json
 ]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<logger level="INFO" doc:name="New" doc:id="9b7c8a39-616d-4f01-ac0c-300778ac734e" />
 	</flow>
 </mule>
