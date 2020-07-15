@@ -22,7 +22,7 @@ http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/
 		<http:request-connection host="mu.learn.mulesoft.com" port="80" />
 	</http:request-config>
 	<flow name="integerationFlow" doc:id="728879cc-cf2f-40ff-9e97-a0e118dfbf57" >
-		<http:listener doc:name="Listener" doc:id="2c776705-1d0c-43e1-9797-4a7298c49039" config-ref="HTTP_Listener_config" path="/intpath"/>
+		<http:listener doc:name="Listener" doc:id="2c776705-1d0c-43e1-9797-4a7298c49039" config-ref="HTTP_Listener_config" path="/integerationpath"/>
 		<http:request method="GET" doc:name="Request" doc:id="0d0cd1a6-8743-4caa-9ad0-33af8283107a" config-ref="HTTP_Request_configuration" path="/united/flights" />
 		<ee:transform doc:name="Transform Message" doc:id="77af8849-c50c-4dde-81a0-84ef2907424b">
 			<ee:message>
